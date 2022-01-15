@@ -1,0 +1,16 @@
+
+<h4>Server Manager App</h4>
+<p>Manage your Servers and Users</p>
+
+
+ <button class="btn btn-dark" (click)="onLoadServers()">Load servers</button> 
+
+ 
+ <br>
+ <br>
+
+<!-- le pasamos por parámetro el número del servidor ficticio -->
+<button class="btn btn-dark" (click)="onLoadServer(8)">Load server Nº8</button>
+
+<button class="btn btn-info mx-2" (click)="onlogin()">Login</button> <!-- si haces click da acceso a la lista de servidores porque estás autenticado -->
+<button class="btn btn-outline-info" (click)="onlogout()">Logout</button>
