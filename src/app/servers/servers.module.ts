@@ -5,6 +5,7 @@ import { ServerComponent } from './server/server.component';
 import { EditServerComponent } from './edit-server/edit-server.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AuthGuard } from '../AuthGuard';
 
 
 
@@ -21,6 +22,9 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     ServersComponent
+  ],
+  providers: [
+    AuthGuard
   ]
 })
 export class ServersModule { }

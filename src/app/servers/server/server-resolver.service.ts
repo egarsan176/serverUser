@@ -15,7 +15,9 @@ export interface Server {
   status: string;
 }
  
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ServerResolver implements Resolve<Server>{
 
     //la interfaz Resolve nos obliga a tener un método resolve() que espera la ruta del snapshot y el state del snapshot

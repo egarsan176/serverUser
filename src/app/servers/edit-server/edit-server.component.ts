@@ -3,15 +3,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CanComponentDeactivate } from '../interfaces/CanComponentDeactivate.interface';
 import { Server } from '../interfaces/server.interface';
 import { ServersService } from '../servers.service';
-import { CanComponentDeactivate } from './can-deactivate-guard.service';
 
 @Component({
   selector: 'app-edit-server',
   templateUrl: './edit-server.component.html'
 })
 export class EditServerComponent implements OnInit, CanComponentDeactivate {
+  
   server!: Server; // le estoy diciendo que soy consciente de que no está inicializado pero te aseguro que luego se va a inicializar
   serverName = '';
   serverStatus = '';

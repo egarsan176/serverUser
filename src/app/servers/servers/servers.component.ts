@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ControlUsersService } from 'src/app/login/control-users.service';
 import { Server } from '../interfaces/server.interface';
 import { ServersService } from '../servers.service';
 
@@ -9,15 +10,26 @@ import { ServersService } from '../servers.service';
   templateUrl: './servers.component.html'
 })
 export class ServersComponent implements OnInit {
+
   public servers: Server[] = [];
-  public server!: Server;
 
   constructor(private serversService: ServersService,
                private router: Router,
-               private route: ActivatedRoute) { }
+               private route: ActivatedRoute,
+               private controlUser: ControlUsersService) { }
 
   ngOnInit() {
-    this.servers = this.serversService.getServers();
+    //this.servers = this.serversService.getServers();
+
+     
+    // if(this.controlUser.getToken() != null){
+    //   this.servers = this.serversService.getServers();
+
+    // }else{
+    //   console.log("Error, no estas logueado");
+    //   this.router.navigateByUrl('');
+    // }
+    
 
    }
 
@@ -38,7 +50,7 @@ export class ServersComponent implements OnInit {
     
     console.log(this.route); //http://localhost:4200/servers/servers
 
-    this.router.navigate(['servers'], { relativeTo: this.route });
+    this.router.navigate(['servers']), { relativeTo: this.route };
 
     //la propiedad relativeTo espera que le informemos sobre a qué ruta debe ser relativa el link que le pasamos en el primer parámetro
     //A la propiedad relativeTo debemos pasarle la ruta actual en la que nos encontremos, que previamente debemos inyectar en el constructor.

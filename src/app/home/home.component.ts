@@ -14,13 +14,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onLoadServers() {
-    // complex code that connects to a backend
+  // onLoadServers() {
+  //   // complex code that connects to a backend
    
-    // navigation to Servers page  --> debemos tener acceso al Router de Angular, para así indicarle nuestra intención de navegar a alguna ruta.
-      //Podemos hacerlo simplemente inyectando el Router en el constructor. Le damos el nombre de router, por ejemplo, y lo transformamos en una propiedad.
-      this.router.navigate(['/servers']); //El primer elemento del array será el primer segmento del path. Por tanto, si queremos navegar hasta Servers, le pasamos la ruta /servers (path absoluto).
-    }
+  //   // navigation to Servers page  --> debemos tener acceso al Router de Angular, para así indicarle nuestra intención de navegar a alguna ruta.
+  //     //Podemos hacerlo simplemente inyectando el Router en el constructor. Le damos el nombre de router, por ejemplo, y lo transformamos en una propiedad.
+  //     this.router.navigate(['/servers']); //El primer elemento del array será el primer segmento del path. Por tanto, si queremos navegar hasta Servers, le pasamos la ruta /servers (path absoluto).
+  //   }
 
     onLoadServer(id: number) {
       // complex code that connects to a backend
@@ -34,7 +34,8 @@ export class HomeComponent implements OnInit {
     }
 
     onlogin() {
-      this.authService.login();
+      this.router.navigateByUrl('login')
+      //también puedo poner  this.router.navigate(['/login']);
     }
    
     onlogout() {
