@@ -26,11 +26,17 @@ export class LoginComponent implements OnInit {
     //me suscribo al login del servicio y le paso el email y la contraseña
     this.userControl.login(this.email, this.password)
     .subscribe(resp =>{
+
+      //si la respuesta es válida almacena el token y te redirige a server
       localStorage.setItem('token',JSON.stringify(resp)); //alamceno en localStorage el token
       this.router.navigateByUrl('servers'); //hago que te redirija a servers
-    }, error =>{
+    }, 
+    error =>{
+      
+      //si la respuesta es errónea porque los datos no sean correctos te muestra error
       console.log(error.message);
-      Swal.fire({
+      
+      Swal.fire({ //para que salte un alert si los datos introducidos no están en el database.json
         title: 'Error al iniciar sesión',
         text: 'Email o password proporcionados incorrectos',
         icon: 'error',
