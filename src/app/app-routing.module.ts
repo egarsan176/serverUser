@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login/login.component';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
-import { ServerResolver } from './servers/server/server-resolver.service';
+// import { ServerResolver } from './servers/server/server-resolver.service';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersComponent } from './servers/servers/servers.component';
 import { UserComponent } from './users/user/user.component';
@@ -62,7 +62,7 @@ const appRoutes: Routes = [
   },
 
   { path: 'servers', component: ServersComponent, canActivate:[AuthGuard], children: [
-    { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard], resolve:{server: ServerResolver} },
+    { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard]},//, resolve:{server: ServerResolver} },
     { path: ':id', canActivate:[AuthGuard], component: ServerComponent }]
   },
   

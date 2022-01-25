@@ -45,11 +45,11 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
       //actualizar el ID para obtenerlo dinámicamente. 
       //Creamos una variable y accedemos al ID de la ruta. No olvides convertirlo a número
       const id = +this.route.snapshot.params['id']
-      this.server = this.serversService.getServer(id);    
+      //this.server = this.serversService.getServer(id);    
   };
 
   onUpdateServer() {
-    this.serversService.updateServer(this.server.id, {name: this.serverName, status: this.serverStatus});
+    //this.serversService.updateServer(this.server.id, {name: this.serverName, status: this.serverStatus});
     this.changesSaved = true;
     this.router.navigate(['../'], {relativeTo: this.route});
   }

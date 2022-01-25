@@ -14,7 +14,7 @@ export class ControlUsersService {
 
   constructor(private http: HttpClient) { }
 
-
+  //haces una peticion a esa url con ese body
   login(email:string, password:string){
 
     const url = `${this.baseUrl}/auth/login`;
@@ -23,13 +23,18 @@ export class ControlUsersService {
       'email': email,
       'password': password
     }
-
+    //te devuelve la respuesta de la petición 
     return this.http.post(url, body);
   }
 
   //recuperamos el token que teníamos almacenado en el localStorage
   getToken(){
     return JSON.parse(<string>localStorage.getItem("token"));
+  }
+
+  //borro el token al cerrar sesión para no poder acceder de nuevo
+  logout(){
+    localStorage.removeItem("token");
   }
 
 

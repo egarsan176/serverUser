@@ -19,7 +19,9 @@ export class ServersComponent implements OnInit {
                private controlUser: ControlUsersService) { }
 
   ngOnInit() {
-    //this.servers = this.serversService.getServers();
+    this.serversService.getServers().subscribe(resp =>{
+      this.servers=resp;
+    })
 
      
     // if(this.controlUser.getToken() != null){
